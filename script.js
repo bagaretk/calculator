@@ -35,19 +35,46 @@ const operate = function(a, b, sign){
 
 function buttonPressed(input){
     const calcTextBox= document.querySelector("#panel_calculate_text");
-    if(!Number.isInteger(input)){
+    if(input == "AC"){
+        displayText = "";
+        a = null; b = null; sign = null;
+        calcTextBox.textContent = "";
+        return;
+    }
+    if(input === "=") {
+        a = operate(a,b,sign);
+        b = null;
+        sign = null;
+        calcTextBox.textContent = `${a}`;
+        return;
+    }
+
+    if(!Number.isInteger(input)) {
+        if(a && b){
+            a = operate(a,b,sign);
+            b = null;
+            //display doar a, rezultatul
+        }
         sign = input;
+        calcTextBox.textContent = `${a} ${sign}`;
     } else {
-        if(!Number.isInteger(displayText[displayText.length - 1])) {
-            if(!a) {
-                a = a * 10 + input;
+        if(!sign) { //if we don t have a sign, we input the first number
+            if(!a) {    //if a does not exist, we create it
+                a = 0;
             }
+            a = a * 10 + input;
+            calcTextBox.textContent = `${a}`;
+
+        } else { //if sign exists, we input the second number
+            if(!b){
+                b = 0;
+            }
+            b = b * 10 + input;
+            calcTextBox.textContent = `${a} ${sign} ${b}`;
         }
     }
-    displayText[displayText.length] = input;
-    calcTextBox.textContent = displayText.join("");
-
 }
+
 
 let displayText = []
 let a, b, sign;
