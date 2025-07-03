@@ -10,7 +10,6 @@ const multiply = function(a, b){
     return a*b;
 }
 const divide = function(a,b){
-    //dat return la eroare daca b e 0
     if(b === 0){
         alert("You can`t devide with 0");
     } else {
@@ -70,6 +69,7 @@ function buttonPressed(input){
             a = operate(a,b,sign);
             b = null;
         }
+        if(!a){ return;}
         sign = input;
         calcTextBox.textContent = `${a} ${sign}`;
     } else {
