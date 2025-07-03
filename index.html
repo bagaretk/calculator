@@ -5,43 +5,37 @@
     <script src="script.js" defer></script>
 </head>
 <body>
-    <div id="body">
+    <div id="calcBody">
         <div id="panel_result">
-            <div id="panel_history"><p id="panel_history_text"></p></div>
             <div id="panel_calculate"><p id="panel_calculate_text"></p></div>
         </div>
-        <div id="delete_buttons">
-            <div id="delete_all">
-                <button class="button" onclick="">AC</button>
-            </div>
-            <div id="delete_last">
-                <button class="button" onclick="">CE</button>
-            </div>
+        <div class="row">
+            <button id="delete_all" class="button" onclick='buttonPressed("AC")'>AC</button>
+            <button id="delete_last" class="button" onclick='buttonPressed("CE")'>CE</button>
         </div>
         <div id="operator_buttons">
-            <div id="row1">
-                <button id="operator_1" onclick="" class="button">1</button>
-                <button id="operator_2" onclick="" class="button">2</button>
-                <button id="operator_3" onclick="" class="button">3</button>
-                <button id="operator_+" onclick="" class="button">+</button>
+            <div class="row">
+                <button id="operator_1" onclick='buttonPressed(1)' class="button">1</button>
+                <button id="operator_2" onclick='buttonPressed(2)'class="button">2</button>
+                <button id="operator_3" onclick='buttonPressed(3)' class="button">3</button>
+                <button id="operator_+" onclick='buttonPressed("+")' class="button">+</button>
             </div>
-            <div id="row2">
-                <button id="operator_4" onclick="" class="button">4</button>
-                <button id="operator_5" onclick="" class="button">5</button>
-                <button id="operator_6" onclick="" class="button">6</button>
-                <button id="operator_-" onclick="" class="button">-</button>
+            <div class="row">
+                <button id="operator_4" onclick='buttonPressed(4)' class="button">4</button>
+                <button id="operator_5" onclick='buttonPressed(5)' class="button">5</button>
+                <button id="operator_6" onclick='buttonPressed(6)' class="button">6</button>
+                <button id="operator_-" onclick='buttonPressed("-")' class="button">-</button>
             </div>
-            <div id="row3">
-                <button id="operator_7" onclick="" class="button">7</button>
-                <button id="operator_8" onclick="" class="button">8</button>
-                <button id="operator_9" onclick="" class="button">9</button>
-                <button id="operator_*" onclick="" class="button">*</button>
+            <div class="row">
+                <button id="operator_7" onclick='buttonPressed(7)' class="button">7</button>
+                <button id="operator_8" onclick='buttonPressed(8)' class="button">8</button>
+                <button id="operator_9" onclick='buttonPressed(9)' class="button">9</button>
+                <button id="operator_*" onclick='buttonPressed("*")' class="button">*</button>
             </div>
-            <div row="4">
-                <button id="operator_." onclick="" class="button">.</button>
-                <button id="operator_0" onclick="" class="button">0</button>
-                <button id="operator_=" onclick="" class="button">=</button>
-                <button id="operator_/" onclick="" class="button">/</button>
+            <div class="row">
+                <button id="operator_0" onclick='buttonPressed(0)' class="button" style="flex-grow: 1;">0</button>
+                <button id="operator_=" onclick='buttonPressed("=")' class="button" style="flex-grow: 2;">=</button>
+                <button id="operator_/" onclick='buttonPressed("/")' class="button" style="flex-grow: 1;">/</button>
             </div>
         </div>
     </div>
