@@ -41,7 +41,21 @@ function buttonPressed(input){
         calcTextBox.textContent = "";
         return;
     }
+    if(input == "CE"){
+        if(!sign && a) { // we delete from a
+            a = parseInt(a / 10);
+            calcTextBox.textContent = `${a}`;
+        } else if(sign && a && !b) { //to delete the sign
+            sign = null;
+            calcTextBox.textContent = `${a}`;
+        } else if(sign) { // we delete from b
+            b = parseInt(b / 10);
+            calcTextBox.textContent = `${a} ${sign} ${b}`;
+        }
+        return;
+    }
     if(input === "=") {
+        if(!a || !b || !sign){return;} // do nothing if everything is not in place
         a = operate(a,b,sign);
         b = null;
         sign = null;
@@ -49,11 +63,12 @@ function buttonPressed(input){
         return;
     }
 
+
+
     if(!Number.isInteger(input)) {
         if(a && b){
             a = operate(a,b,sign);
             b = null;
-            //display doar a, rezultatul
         }
         sign = input;
         calcTextBox.textContent = `${a} ${sign}`;
